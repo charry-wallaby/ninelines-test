@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="33" height="34" fill="none" viewBox="0 0 33 34">
+	<rect width="24" height="24" x="-.47" y="16.728" fill="url(#rectangle-xl-05-a)" stroke="#FFD5B4" stroke-width="4" rx="6" transform="rotate(-45 -.47 16.728)"/>
+	<defs>
+		<radialGradient id="rectangle-xl-05-a" cx="0" cy="0" r="1" gradientTransform="rotate(135 7.77 13.877) scale(35.4375)" gradientUnits="userSpaceOnUse">
+			<stop stop-color="#FFBC89"/>
+			<stop offset="1" stop-color="#FFA25A"/>
+		</radialGradient>
+	</defs>
+</svg>

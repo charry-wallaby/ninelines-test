@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="63" height="43" fill="none" viewBox="0 0 63 43">
+	<rect width="15" height="15" fill="url(#rectangle-xl-01-a)" stroke="#C0F0FF" stroke-width="3" rx="4" transform="matrix(.7071 -.7071 .71109 .7031 .744 20.115)"/>
+	<rect width="15" height="15" fill="url(#rectangle-xl-01-b)" stroke="#FFF3B5" stroke-width="3" rx="4" transform="matrix(.7071 -.7071 .71109 .7031 40.983 20.115)"/>
+	<rect width="26" height="26" x="2.836" y="-.008" fill="url(#rectangle-xl-01-c)" stroke="#CCC9FD" stroke-width="4" rx="6" transform="matrix(.7071 -.7071 .71109 .7031 11.755 23.216)"/>
+	<defs>
+		<radialGradient id="rectangle-xl-01-a" cx="0" cy="0" r="1" gradientTransform="rotate(134.648 6.538 3.466) scale(17.3569)" gradientUnits="userSpaceOnUse">
+			<stop stop-color="#7CCBFC"/>
+			<stop offset="1" stop-color="#48BDF1"/>
+		</radialGradient>
+		<radialGradient id="rectangle-xl-01-b" cx="0" cy="0" r="1" gradientTransform="rotate(135 6.879 3.375) scale(18.75)" gradientUnits="userSpaceOnUse">
+			<stop stop-color="#FFEF9D"/>
+			<stop offset="1" stop-color="#FFCF41"/>
+		</radialGradient>
+		<radialGradient id="rectangle-xl-01-c" cx="0" cy="0" r="1" gradientTransform="rotate(135 13.797 6.625) scale(37.9688)" gradientUnits="userSpaceOnUse">
+			<stop stop-color="#AFAAFE"/>
+			<stop offset="1" stop-color="#928CF8"/>
+		</radialGradient>
+	</defs>
+</svg>
