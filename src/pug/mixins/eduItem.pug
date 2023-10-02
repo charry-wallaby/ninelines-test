@@ -1,0 +1,10 @@
+mixin eduItem(data)
+	.edu-item
+		.edu-item__icon
+			span(class=`sprite-${data.icon}`)
+		.edu-item__pos
+			p.edu-item__title!=data.title
+		.edu-item__about
+			p!=data.text1
+			if data.text2
+				p!=data.text2

@@ -1,0 +1,23 @@
+mixin expirienceItem(data)
+	.expirience-item
+		.expirience-item__date!=data.period
+		.expirience-item__pos
+			p.expirience-item__title!=data.position
+			.expirience-item__icon
+				span(class=`sprite-${data.positionIcon}`)
+		.expirience-item__employer
+			if data.employerLogo
+				+lazyImage({
+					src: `${baseDir}images/logos/${data.employerLogo}.svg`,
+					alt: data.employerLogo,
+				})
+			if data.employerName
+				span!=data.employerName
+			span!=data.employerAbout
+		.expirience-item__about
+			p!=data.text
+		if data.link1
+			.expirience-item__links
+				.expirience-item__link=data.link1
+				if data.link2
+					.expirience-item__link=data.link2

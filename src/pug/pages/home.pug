@@ -1,0 +1,110 @@
+prepend vars
+	- title = 'Максим Романов, HTML-верстальщик';
+	- description = 'Как разработчик, я высоко ценю способность воплотить видение дизайнера в жизнь, что считаю очень полезным для бизнеса.';
+
+main.home(data-scroll data-scroll-event-progress="progressEvent")
+	section.intro#intro(
+		data-scroll
+		data-scroll-css-progress
+		style="opacity: calc(1 - var(--progress))"
+	)
+		.container.intro__container
+			.intro__top(data-scroll data-scroll-speed="0.1")
+				+picture({
+					src: `${baseDir}images/logo.png`,
+					alt: 'Logo',
+				}, [
+					{
+						srcset: `${baseDir}images/logo.png 1x, ${baseDir}images/logo@2x.png 2x`,
+					}
+				]).intro__logo
+			
+			.intro__bottom
+				.intro__bottom-left(data-scroll data-scroll-speed="0.2")
+					h1.h1.intro__title
+						| Максим Романов,
+						br
+						| HTML-верстальщик
+					p.intro__text
+						| Как разработчик, я высоко ценю способность воплотить видение 
+						| дизайнера в жизнь, что считаю очень полезным для бизнеса. 
+						| Я получаю огромное удовлетворение, наблюдая за работой от 
+						| идеи до дизайна, особенно когда она появляется в руках 
+						| пользователя. Я считаю, что ориентированные на пользователя 
+						| решения являются наиболее ценными цифровыми ресурсами будущего.
+				
+				.intro__bottom-right(data-scroll data-scroll-speed="0.2")
+					.intro__contacts
+						a.intro__contacts-link(href="mailto:89sagitarius@gmail.com")
+							| 89sagitarius@gmail.com
+						a.intro__contacts-link(href="tel:+79990000000")
+							| +7 (999) 000-00-00
+						.intro__contacts-city
+							| г. Ларнака
+						.intro__contacts-social.social
+							each item in data.intro.social
+								button.intro__contacts-link.social__link(
+									type="button"
+									data-social=item.link
+								)
+									+svg(item.icon)
+			.intro__decor
+
+	section.about#about
+		.container
+			.about__wrap
+				.about__col(data-scroll data-scroll-speed="0.1")
+					h2.h2.about__title
+						| Опыт работы
+					.about__col-wrap
+						each item in data.home.expirience
+							+expirienceItem({
+								period: item.period,
+								position: item.position,
+								positionIcon: item.positionIcon,
+								employerLogo: item.employerLogo,
+								employerName: item.employerName,
+								employerAbout: item.employerAbout,
+								text: item.text,
+								link1: item.link1,
+								link2: item.link2,
+							})
+
+				.about__col
+					+picture({
+						src: `${baseDir}images/boy.png`,
+						alt: 'Boy',
+					}, [
+						{
+							srcset: `${baseDir}images/boy.png 1x, ${baseDir}images/boy@2x.png 2x`,
+						}
+					]).about__col-image(data-scroll data-scroll-speed="-0.7")
+
+				.about__col(data-scroll data-scroll-speed="0.1")
+					h2.h2.about__title
+						| Образование
+					.about__col-wrap
+						each object in data.home.edu
+							+eduItem({
+								icon: object.icon,
+								title: object.title,
+								text1: object.text1,
+								text2: object.text2,
+							})
+	
+	section.skills#skills
+		.container.skills__container
+			h2.h2.skills__title(data-scroll data-scroll-speed="0.1")
+				| Навыки
+			.skills__wrap(data-scroll data-scroll-speed="0.2")
+				each item in data.home.skills
+					+skillItem({
+						title: item.title,
+						text: item.text
+					})
+
+			.skills__decor
+
+	.btn__up.js-back-to-top#btnTop
+		.btn__up-percantage#btnTopProgress
+		+svg("arrow-up").btn__up-icon

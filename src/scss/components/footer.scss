@@ -1,0 +1,40 @@
+.footer {
+	transition: filter $duration-normal $easing-back-in;
+
+	&__wrap {
+		display: flex;
+		justify-content: center;
+	}
+
+	@include desktop {
+		padding: #{vw(154)} 0 #{vw(50)};
+
+		&__image {
+			width: #{vw(512)};
+		}
+	}
+
+	@include desktop-xl {
+		padding: 193px 0 63px;
+
+		&__image {
+			width: 640px;
+		}
+	}
+
+	@include devices {
+		padding: #{vm(40)} 0;
+
+		&__container {
+			padding: 0;
+		}
+
+		&__wrap {
+			transform: none !important;
+		}
+
+		&__image {
+			width: 100vw;
+		}
+	}
+}
