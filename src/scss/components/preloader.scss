@@ -9,8 +9,8 @@
 
 	&__image {
 		position: absolute;
-		bottom: 0;
 		left: 0;
+		bottom: 0;
 		height: auto;
 		transform: translate(-250%, 150%);
 
@@ -24,6 +24,10 @@
 
 		@include devices {
 			width: #{vm(280)};
+
+			@media (orientation: portrait) {
+				transform: translate(-150%, 250%);
+			}
 		}
 	}
 }

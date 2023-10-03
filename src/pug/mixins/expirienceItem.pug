@@ -5,6 +5,7 @@ mixin expirienceItem(data)
 			p.expirience-item__title!=data.position
 			.expirience-item__icon
 				span(class=`sprite-${data.positionIcon}`)
+
 		.expirience-item__employer
 			if data.employerLogo
 				+lazyImage({
@@ -14,8 +15,10 @@ mixin expirienceItem(data)
 			if data.employerName
 				span!=data.employerName
 			span!=data.employerAbout
+
 		.expirience-item__about
 			p!=data.text
+
 		if data.link1
 			.expirience-item__links
 				.expirience-item__link=data.link1

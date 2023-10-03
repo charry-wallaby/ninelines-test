@@ -666,13 +666,22 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var tl = gsap__WEBPACK_IMPORTED_MODULE_1__["default"].timeline();
-var el = document.querySelector('.preloader__image');
-tl.to(el, {
-  x: '250%',
-  y: '-150%',
-  duration: 6
-});
-ninelines_preloader__WEBPACK_IMPORTED_MODULE_0___default.a.init(['/images/logo.png', '/images/boy.png', '/images/hands.png']).then(function () {
+var preloaderImg = document.querySelector('.preloader__image');
+var orientScreen = window.matchMedia('(orientation: portrait)');
+var arrayImages = ['images/logo.png', 'images/boy.png', 'images/hands.png'];
+var imageAnimate = function imageAnimate(el, posX, posY) {
+  tl.to(el, {
+    x: posX,
+    y: posY,
+    duration: 6
+  });
+};
+if (orientScreen.matches === true) {
+  imageAnimate(preloaderImg, '170%', '-400%');
+} else {
+  imageAnimate(preloaderImg, '500%', '-250%');
+}
+ninelines_preloader__WEBPACK_IMPORTED_MODULE_0___default.a.init(arrayImages).then(function () {
   $('html').removeClass('is-lock-scroll');
   $('.preloader').css('display', 'none');
 });
@@ -697,34 +706,35 @@ var init = function init() {
   var tl = gsap__WEBPACK_IMPORTED_MODULE_1__["default"].timeline({
     paused: true
   });
-  var el = document.querySelector('.footer__image');
-  tl.to(el, {
+  var $footerImg = $('.footer__image');
+  var $btnTop = $('#btnTop');
+  var $btnTopProgress = $('#btnTopProgress');
+  var percentHeight = +($(window).innerHeight() / $('html').height() * 100).toFixed(0);
+  tl.to($footerImg, {
     scale: 0,
     opacity: 0,
     duration: 10,
-    ease: "linear"
+    ease: 'linear'
   });
-  tl.to(el, {
+  tl.to($footerImg, {
     scale: 1,
     opacity: 1,
     duration: 10,
-    ease: "linear"
+    ease: 'linear'
   });
-  window.addEventListener('progressEvent', function (e) {
+  $(window).on('progressEvent', function (e) {
     var progress = e.detail.progress;
-    var progressFix = +(progress * 100).toFixed(0) + 25;
-    var btnTop = $('#btnTop');
-    var btnTopProgress = $('#btnTopProgress');
-    $(btnTop).css('--p', progressFix + '%');
+    var progressFix = +(progress * 100).toFixed(0) + percentHeight;
+    $btnTop.css('--p', progressFix + '%');
     if (progressFix > 100) {
-      $(btnTop).addClass('is-show-arrow');
-      $(btnTopProgress).html();
+      $btnTop.addClass('is-show-arrow');
+      $btnTopProgress.html();
     } else {
-      $(btnTop).removeClass('is-show-arrow');
-      $(btnTopProgress).html(progressFix + '%');
+      $btnTop.removeClass('is-show-arrow');
+      $btnTopProgress.html(progressFix + '%');
     }
   });
-  window.addEventListener("scrollScale", function (e) {
+  $(window).on('scrollScale', function (e) {
     var progress = e.detail.progress;
     tl.progress(progress);
   });
@@ -759,9 +769,8 @@ var init = function init() {
     var thisItem = $(e.currentTarget);
     var id = thisItem.attr('href');
     var speed = thisItem.data('speed') || 500;
-    var headerHeight = _helpers__WEBPACK_IMPORTED_MODULE_1__["default"].winWidth <= 1024 ? -_helpers__WEBPACK_IMPORTED_MODULE_1__["default"].$header.outerHeight(true) + 50 : -_helpers__WEBPACK_IMPORTED_MODULE_1__["default"].$header.outerHeight(true) - 50;
+    var headerHeight = _helpers__WEBPACK_IMPORTED_MODULE_1__["default"].winWidth <= 1024 ? -_helpers__WEBPACK_IMPORTED_MODULE_1__["default"].$header.outerHeight(true) + 50 : -_helpers__WEBPACK_IMPORTED_MODULE_1__["default"].$header.outerHeight(true) + 30;
     var offset = _helpers__WEBPACK_IMPORTED_MODULE_1__["default"].$header.css('position') === 'fixed' || _helpers__WEBPACK_IMPORTED_MODULE_1__["default"].$header.css('position') === 'absolute' ? headerHeight : 0;
-    console.log(headerHeight);
     thisItem.addClass('is-active');
     $('.js-to-anchor').not(thisItem).removeClass('is-active');
     _components_header__WEBPACK_IMPORTED_MODULE_0__["default"].closeMenu().then(function () {

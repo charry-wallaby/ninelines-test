@@ -13,10 +13,10 @@
 
 			&-link {
 				transition: color $duration-normal ease-in-out;
-				
+
 				@include hover {
 					color: $color-blue;
-					
+
 					svg {
 						fill: $color-blue;
 					}
@@ -27,11 +27,11 @@
 				display: flex;
 
 				&__link {
-					padding: 0;
 					border: none;
+					padding: 0;
 					background: none;
 				}
-				
+
 				svg {
 					transition: fill $duration-normal ease-in-out;
 				}
@@ -40,10 +40,11 @@
 
 		&__decor {
 			position: absolute;
-			bottom: 0;
 			left: 0;
+			bottom: 0;
+			z-index: -1;
 			width: 100%;
-			background-image: url('../images/decors/line2.svg');
+			background-image: url("../images/decors/line2.svg");
 			background-size: 100%;
 			background-repeat: no-repeat;
 		}
@@ -79,8 +80,8 @@
 				}
 
 				.social {
-					gap: #{vw(15)};
 					margin-top: #{vw(15)};
+					gap: #{vw(15)};
 
 					svg {
 						width: #{vw(25)};
@@ -125,8 +126,8 @@
 				}
 
 				.social {
-					gap: 19px;
 					margin-top: 19px;
+					gap: 19px;
 
 					svg {
 						width: 32px;
@@ -142,7 +143,7 @@
 
 		@include mobile {
 			&__decor {
-				background-image: url('../images/decors/line2-mob.svg');
+				background-image: url("../images/decors/line2-mob.svg");
 			}
 		}
 
@@ -173,8 +174,8 @@
 				}
 
 				.social {
-					gap: #{vm(15)};
 					margin-top: #{vm(15)};
+					gap: #{vm(15)};
 
 					svg {
 						width: #{vm(25)};
@@ -185,8 +186,8 @@
 
 			&__decor {
 				left: #{vm(20)};
-				max-width: calc(100% - #{vm(40)});
 				height: #{vm(109)};
+				max-width: calc(100% - #{vm(40)});
 			}
 		}
 	}
@@ -225,12 +226,13 @@
 			}
 
 			&__links {
+				// stylelint-disable-next-line
 				margin-top: 0 !important;
 			}
 
 			&__link {
-				color: $color-blue;
 				text-decoration: underline;
+				color: $color-blue;
 				cursor: pointer;
 
 				@include hover {
@@ -242,15 +244,15 @@
 		.edu-item {
 			display: grid;
 			text-align: center;
-			
+
 			&__pos {
 				line-height: 140%;
 			}
-			
+
 			&__title {
 				font-weight: 700;
 			}
-			
+
 			&__about {
 				display: grid;
 				line-height: 140%;
@@ -266,6 +268,13 @@
 			}
 
 			&__col {
+				&-image {
+					position: absolute;
+					left: #{vw(-109)};
+					top: 0;
+					width: #{vw(500)};
+				}
+
 				&:first-child {
 					.about__col-wrap {
 						row-gap: #{vw(60)};
@@ -281,13 +290,6 @@
 						row-gap: #{vw(30)};
 					}
 				}
-
-				&-image {
-					position: absolute;
-					top: 0;
-					left: #{vw(-109)};
-					width: #{vw(500)};
-				}
 			}
 
 			&__title {
@@ -295,15 +297,13 @@
 			}
 
 			.expirience-item {
-				& > div {
-					margin-top: #{vw(8)};
-				}
-
 				&__pos {
+					margin-top: #{vw(8)};
 					gap: #{vw(8)};
 				}
 
 				&__employer {
+					margin-top: #{vw(8)};
 					gap: #{vw(8)};
 
 					img {
@@ -314,8 +314,8 @@
 			}
 
 			.edu-item {
-				row-gap: #{vw(5)};
 				padding: 0 #{vw(20)};
+				row-gap: #{vw(5)};
 
 				&__about {
 					row-gap: #{vw(5)};
@@ -331,6 +331,11 @@
 			}
 
 			&__col {
+				&-image {
+					left: -136px;
+					width: 625px;
+				}
+
 				&:first-child {
 					.about__col-wrap {
 						row-gap: 75px;
@@ -342,23 +347,16 @@
 						row-gap: 38px;
 					}
 				}
-
-				&-image {
-					left: -136px;
-					width: 625px;
-				}
 			}
 
 			.expirience-item {
-				& > div {
-					margin-top: 10px;
-				}
-
 				&__pos {
+					margin-top: 10px;
 					gap: 10px;
 				}
 
 				&__employer {
+					margin-top: 10px;
 					gap: 10px;
 
 					img {
@@ -369,8 +367,8 @@
 			}
 
 			.edu-item {
-				row-gap: 7px;
 				padding: 0 25px;
+				row-gap: 7px;
 
 				&__about {
 					row-gap: 7px;
@@ -422,27 +420,28 @@
 			}
 
 			&__col {
+				&-image {
+					width: #{vm(200)};
+					// stylelint-disable-next-line
+					transform: none !important;
+				}
+
 				&:first-child {
 					.about__col-wrap {
 						row-gap: #{vm(60)};
 					}
 				}
 
-				&:nth-child(2) {
-					display: flex;
-					justify-content: center;
-				}
-
 				&:last-child {
 					.about__col-wrap {
-						grid-template-columns: repeat(2, 1fr);
 						column-gap: #{vm(20)};
+						grid-template-columns: repeat(2, 1fr);
 					}
 				}
 
-				&-image {
-					width: #{vm(200)};
-					transform: none !important;
+				&:nth-child(2) {
+					display: flex;
+					justify-content: center;
 				}
 			}
 
@@ -451,15 +450,13 @@
 			}
 
 			.expirience-item {
-				& > div {
-					margin-top: #{vm(8)};
-				}
-
 				&__pos {
+					margin-top: #{vm(8)};
 					gap: #{vm(8)};
 				}
 
 				&__employer {
+					margin-top: #{vm(8)};
 					gap: #{vm(8)};
 
 					img {
@@ -471,8 +468,8 @@
 
 			.edu-item {
 				align-content: flex-start;
-				row-gap: #{vm(5)};
 				padding: 0 #{vm(20)};
+				row-gap: #{vm(5)};
 
 				&__about {
 					row-gap: #{vm(5)};
@@ -498,10 +495,11 @@
 
 		&__decor {
 			position: absolute;
-			top: 0;
 			left: 0;
+			top: 0;
+			z-index: -1;
 			width: 100%;
-			background-image: url('../images/decors/line3.svg');
+			background-image: url("../images/decors/line3.svg");
 			background-size: 100%;
 			background-repeat: no-repeat;
 		}
@@ -517,8 +515,8 @@
 			}
 
 			&__wrap {
-				gap: #{vw(20)};
 				grid-template-columns: repeat(4, 1fr);
+				gap: #{vw(20)};
 			}
 
 			&__item-title {
@@ -555,7 +553,7 @@
 
 		@include mobile {
 			&__decor {
-				background-image: url('../images/decors/line3-mob.svg');
+				background-image: url("../images/decors/line3-mob.svg");
 			}
 		}
 
@@ -577,8 +575,8 @@
 			}
 
 			&__decor {
-				top: #{vm(-10)};
 				left: #{vm(20)};
+				top: #{vm(-10)};
 				width: calc(100% - #{vm(40)});
 				height: #{vm(109)};
 			}

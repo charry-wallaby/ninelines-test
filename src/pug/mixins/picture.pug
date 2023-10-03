@@ -8,7 +8,4 @@ mixin picture(data, source)
 					type=object && object.media ? object.type : null
 				)
 
-		//- fallback для работы всего элемента picture в связке с lozad
-		source(srcset=data.src)
-
 		img(src=data.src alt=data.alt)

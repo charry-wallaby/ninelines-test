@@ -12,10 +12,8 @@ const init = () => {
 		const thisItem = $(e.currentTarget);
 		const id = thisItem.attr('href');
 		const speed = thisItem.data('speed') || 500;
-		const headerHeight = helpers.winWidth <= 1024 ? -helpers.$header.outerHeight(true) + 50 : -helpers.$header.outerHeight(true) - 50;
+		const headerHeight = helpers.winWidth <= 1024 ? -helpers.$header.outerHeight(true) + 50 : -helpers.$header.outerHeight(true) + 30;
 		const offset = helpers.$header.css('position') === 'fixed' || helpers.$header.css('position') === 'absolute' ? headerHeight : 0;
-
-		console.log(headerHeight)
 
 		thisItem.addClass('is-active');
 		$('.js-to-anchor').not(thisItem).removeClass('is-active');

@@ -20,66 +20,66 @@
 	}
 
 	&__up {
+		appearance: none;
 		position: fixed;
+		z-index: 9;
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		border-radius: 50%;
-		z-index: 9;
-		pointer-events: none;
-		appearance: none;
 		overflow: hidden;
+		border-radius: 50%;
 		background: conic-gradient($color-red var(--p), $color-black 0);
 		transition: transform $duration-normal $easing-back-in;
+		pointer-events: none;
 
 		&::before {
+			content: "";
 			position: absolute;
-			top: 1.5px;
 			left: 1.5px;
+			top: 1.5px;
 			z-index: -1;
-			content: '';
+			border-radius: 50%;
 			width: calc(100% - 3px);
 			height: calc(100% - 3px);
-			border-radius: 50%;
 			background-color: $color-white;
+		}
+
+		&-percantage {
+			line-height: 1;
+			color: $color-black;
+			opacity: 1;
+			transition: opacity $duration-normal $easing-back-out;
+		}
+
+		&-icon {
+			display: none;
+			fill: none;
+			opacity: 0;
+			transition: opacity $duration-normal $easing-back-out;
 		}
 
 		&.is-show-arrow {
 			cursor: pointer;
 			pointer-events: inherit;
 
+			.btn__up-percantage {
+				display: none;
+				opacity: 0;
+			}
+
+			.btn__up-icon {
+				display: block;
+				opacity: 1;
+			}
+
 			@include hover {
 				transform: scale(1.05);
 			}
 		}
 
-		&-percantage {
-			color: $color-black;
-			line-height: 1;
-			opacity: 1;
-			transition: opacity $duration-normal $easing-back-out;
-
-			.is-show-arrow & {
-				display: none;
-				opacity: 0;
-			}
-		}
-
-		&-icon {
-			display: none;
-			opacity: 0;
-			fill: none;
-			transition: opacity $duration-normal $easing-back-out;
-
-			.is-show-arrow & {
-				display: block;
-				opacity: 1;
-			}
-		}
-
 		@include desktop {
-			bottom: #{vw(25)};
 			right: #{vw(25)};
+			bottom: #{vw(25)};
 			width: #{vw(48)};
 			height: #{vw(48)};
 
@@ -94,8 +94,8 @@
 		}
 
 		@include desktop-xl {
-			bottom: 32px;
 			right: 32px;
+			bottom: 32px;
 			width: 60px;
 			height: 60px;
 
@@ -110,10 +110,17 @@
 		}
 
 		@include devices {
-			bottom: #{vm(20)};
 			right: #{vm(20)};
+			bottom: #{vm(20)};
 			width: #{vm(30)};
 			height: #{vm(30)};
+
+			&::before {
+				left: 1px;
+				top: 1px;
+				width: calc(100% - 2px);
+				height: calc(100% - 2px);
+			}
 
 			&-percantage {
 				font-size: #{vm(10)};

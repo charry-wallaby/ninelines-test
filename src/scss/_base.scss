@@ -11,18 +11,26 @@ html {
 	box-sizing: border-box;
 	font-family: $font-primary;
 	scroll-behavior: smooth;
-	
+
 	&.has-cursor,
 	&.has-cursor * {
 		// stylelint-disable-next-line
 		cursor: none !important;
 	}
-	
+
 	&.is-lock-scroll,
 	&.is-lock-scroll body {
 		overflow: hidden;
+
+		.site {
+			opacity: 0;
+
+			&.menu-open {
+				opacity: 1;
+			}
+		}
 	}
-	
+
 	@include desktop {
 		font-size: #{vw(14)};
 	}
@@ -129,8 +137,7 @@ iframe {
 	width: 100%;
 	max-width: 100%;
 
-	
-	@include desktop{
+	@include desktop {
 		max-width: #{vw(1140)};
 	}
 
@@ -150,19 +157,15 @@ iframe {
 	// stylelint-disable-next-line
 	min-height: var(--vh);
 	opacity: 1;
-	transition: opacity .6s $easing-back-out;
+	transition: opacity 0.6s $easing-back-out;
 
 	&::before {
+		content: "";
 		position: absolute;
-		top: 0;
 		left: 0;
+		top: 0;
 		z-index: -1;
-		content: '';
 		transition: all $duration-normal $easing-back-in;
-	}
-
-	.is-lock-scroll & {
-		opacity: 0;
 	}
 
 	&.menu-open {
@@ -170,11 +173,12 @@ iframe {
 			z-index: 50;
 			width: 100%;
 			height: 100%;
+			background-color: rgba($color-white, 0.5);
 			filter: brightness(0.5);
-			background-color: rgba($color-white, .5);
 		}
 
-		.home, .footer {
+		.home,
+		.footer {
 			filter: blur(5px);
 		}
 	}

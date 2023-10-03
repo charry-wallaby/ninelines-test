@@ -1,14 +1,14 @@
 footer.footer
 	.container.footer__container
 		.footer__wrap(
-			data-scroll,
-			data-scroll-speed="0.1",
-			data-scroll-offset="-10%, 100%",
+			data-scroll
+			data-scroll-speed="0.1"
+			data-scroll-offset="-10%, 100%"
 			data-scroll-event-progress="scrollScale"
 		)
 			+picture({
 				src: `${baseDir}images/hands.png`,
-				alt: 'Hands',
+				alt: "Hands",
 			}, [
 				{
 					srcset: `${baseDir}images/hands.png 1x, ${baseDir}images/hands@2x.png 2x`,
